@@ -20,7 +20,7 @@ const CartBtn = () => {
         className="max-w-[22px] max-h-[22px]"
       />
       {cart && cart.totalQuantities > 0 && (
-        <span className="bg-blue-600 text-white rounded-lg px-2 py-1 text-xs absolute -top-3 left-1/2 -translate-x-1/2 shadow-lg">          {cart.totalQuantities}
+        <span className="bg-cyan-400 text-white rounded-xl px-2 py-1 text-xs absolute -top-3 left-1/2 -translate-x-1/2 shadow-lg">          {cart.totalQuantities}
         </span>
       )}
     </Link>
