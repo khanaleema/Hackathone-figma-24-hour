@@ -10,8 +10,6 @@ import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
 // Mock data for `NavMenu` (replace with actual data or fetch from an API)
 const navMenuData = {
-  // Add the actual structure of `NavMenu` here
-  // For example:
   items: [
     { name: 'Home', link: '/' },
     { name: 'Shop', link: '/shop' },
@@ -19,7 +17,7 @@ const navMenuData = {
   ]
 };
 
-const TopNavbar = () => {
+const MainNavbar = () => {
   return (
     <nav className="sticky top-0 bg-white z-20">
       <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start py-5 md:py-6 px-4 xl:px-0">
@@ -121,4 +119,4 @@ const TopNavbar = () => {
   );
 };
 
-export default TopNavbar;
+export default MainNavbar;
