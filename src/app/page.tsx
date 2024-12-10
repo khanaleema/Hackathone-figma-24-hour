@@ -2,9 +2,9 @@ import ProductListSec from "@/components/CardProductItem/ListingProduct";
 import Brands from "@/components/homepage/HeroBrandSec/page";
 import DressStyle from "@/components/homepage/StyleDress/page";
 import Header from "@/components/homepage/Hero/page";
-import Reviews from "@/components/homepage/Reviews";
-import { Product } from "@/types/product.types";
-import { Review } from "@/types/review.types";
+import Reviews from "@/components/homepage/Reviews/page";
+import { Product } from "@/APIArray/product.types";
+import { Review } from "@/APIArray/review.types";
 
 export const newArrivalsData: Product[] = [
   {

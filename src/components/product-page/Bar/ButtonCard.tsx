@@ -3,7 +3,7 @@
 import { addToCart } from "@/lib/features/carts/cartsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks/redux";
 import { RootState } from "@/lib/store";
-import { Product } from "@/types/product.types";
+import { Product } from "@/APIArray/product.types";
 import React from "react";
 
 const ButtonCard = ({ data }: { data: Product & { quantity: number } }) => {

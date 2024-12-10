@@ -1,6 +1,6 @@
 import React from "react";
 import PhotoSection from "./Images";
-import { Product } from "@/types/product.types";
+import { Product } from "@/APIArray/product.types";
 import { integralCF } from "@/styles/fonts";
 import { cn } from "@/lib/utils";
 import Rating from "@/components/ui/Rating";

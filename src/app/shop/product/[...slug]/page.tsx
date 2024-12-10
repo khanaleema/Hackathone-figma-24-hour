@@ -6,8 +6,8 @@ import {
 import ProductListSec from "@/components/CardProductItem/ListingProduct";
 import BreadcrumbProduct from "@/components/product-page/BreadcrumbProduct";
 import Header from "@/components/product-page/Bar/page";
-import Tabs from "@/components/product-page/Tabs";
-import { Product } from "@/types/product.types";
+import Tabs from "@/components/product-page/DeatilPageSec/page";
+import { Product } from "@/APIArray/product.types";
 import { notFound } from "next/navigation";
 
 const data: Product[] = [

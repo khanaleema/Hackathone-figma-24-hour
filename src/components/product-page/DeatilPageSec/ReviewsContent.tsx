@@ -1,17 +1,16 @@
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import React from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import ReviewCard from "@/components/CardProductItem/CustomerReviewCard";
 import { reviewsData } from "@/app/page";
 import Link from "next/link";
 
 const ReviewsContent = () => {
+  const [selectedOption, setSelectedOption] = useState("Latest");
+
+  const handleSelect = (value: string) => {
+    setSelectedOption(value);
+  };
+
   return (
     <section>
       <div className="flex items-center justify-between flex-col sm:flex-row mb-5 sm:mb-6">
@@ -22,16 +21,42 @@ const ReviewsContent = () => {
           <span className="text-sm sm:text-base text-black/60">(451)</span>
         </div>
         <div className="flex items-center space-x-2.5">
-          <Select defaultValue="latest">
-            <SelectTrigger className="min-w-[120px] font-medium text-xs sm:text-base px-4 py-3 sm:px-5 sm:py-4 text-black bg-[#F0F0F0] border-none rounded-full h-12">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="latest">Latest</SelectItem>
-              <SelectItem value="most-relevant">Most Relevant</SelectItem>
-              <SelectItem value="oldest">Oldest</SelectItem>
-            </SelectContent>
-          </Select>
+          <div className="relative">
+            <button
+              type="button"
+              className="min-w-[120px] font-medium text-xs sm:text-base px-4 py-3 sm:px-5 sm:py-4 text-black bg-[#F0F0F0] border-none rounded-full h-12"
+              onClick={() =>
+                document
+                  .getElementById("dropdown-menu")
+                  ?.classList.toggle("hidden")
+              }
+            >
+              {selectedOption}
+            </button>
+            <ul
+              id="dropdown-menu"
+              className="hidden absolute left-0 mt-2 w-full bg-white shadow-md rounded-lg z-10"
+            >
+              <li
+                className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                onClick={() => handleSelect("Latest")}
+              >
+                Latest
+              </li>
+              <li
+                className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                onClick={() => handleSelect("Most Relevant")}
+              >
+                Most Relevant
+              </li>
+              <li
+                className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                onClick={() => handleSelect("Oldest")}
+              >
+                Oldest
+              </li>
+            </ul>
+          </div>
 
           <Button
             type="button"

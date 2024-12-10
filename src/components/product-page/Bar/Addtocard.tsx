@@ -3,7 +3,7 @@
 import CartCounter from "@/components/ui/CartCounter";
 import React, { useState } from "react";
 import ButtonCard from "./ButtonCard";
-import { Product } from "@/types/product.types";
+import { Product } from "@/APIArray/product.types";
 
 const Addtocard = ({ data }: { data: Product }) => {
   const [quantity, setQuantity] = useState<number>(1);

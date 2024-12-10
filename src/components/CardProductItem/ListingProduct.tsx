@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { Product } from "@/types/product.types";
+import { Product } from "@/APIArray/product.types";
 import ProductCard from "./CardItem";
 import Link from "next/link";
 import { integralCF } from "@/styles/fonts";
