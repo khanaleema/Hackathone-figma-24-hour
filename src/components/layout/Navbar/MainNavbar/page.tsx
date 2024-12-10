@@ -1,9 +1,7 @@
-'use client';
-
-import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
 import Link from "next/link";
+import React from "react";
 import Image from "next/image";
 import InputGroup from "@/components/ui/input-group";
 import ResTopNavbar from "./OtherTopNavbar";  // Importing ResTopNavbar
@@ -11,75 +9,65 @@ import CartBtn from "./ButtonCard";
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
 // Mock data for `NavMenu` (replace with actual data or fetch from an API)
-const navMenuData = {
-  items: [
-    { name: 'Home', link: '/' },
-    { name: 'Shop', link: '/shop' },
-    { name: 'OnSale', link: '/shop' },
-    { name: 'New Arrivals', link: '/shop' },
-    { name: 'Brands', link: '/shop' }
-  ]
-};
+const navMenuData = [
+  { id: 1, label: 'Home', url: '/' },
+  { id: 2, label: 'Shop', url: '/shop' },
+  { id: 3, label: 'On Sale', url: '/shop' },
+  { id: 4, label: 'New Arrivals', url: '/shop' },
+  { id: 5, label: 'Brands', url: '/shop' }
+];
 
 const MainNavbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);  // Toggle the state on button click
-  };
-
   return (
     <nav className="sticky top-0 bg-white z-20">
       <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start py-5 md:py-6 px-4 xl:px-0">
         <div className="flex items-center">
           <div className="block md:hidden mr-4">
-            {/* Toggle Button for Menu */}
-            <button
-              onClick={toggleMenu}
-              className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-md focus:outline-none"
-            >
-              <span
-                className={cn("block w-6 h-1 bg-black transition-transform duration-300", {
-                  "rotate-45 translate-y-2": isOpen, // Open state
-                  "mb-2": !isOpen
-                })}
-              ></span>
-              <span
-                className={cn("block w-6 h-1 bg-black transition-opacity duration-300", {
-                  "opacity-0": isOpen, // Hidden in open state
-                })}
-              ></span>
-              <span
-                className={cn("block w-6 h-1 bg-black transition-transform duration-300", {
-                  "-rotate-45 -translate-y-2": isOpen, // Open state
-                  "mt-2": !isOpen
-                })}
-              ></span>
-            </button>
-
-            {/* Passing data and isOpen prop to ResTopNavbar */}
-            <ResTopNavbar data={navMenuData} isOpen={isOpen} />
+            {/* Passing data prop to ResTopNavbar */}
+            <ResTopNavbar data={navMenuData} />
           </div>
           <Link
             href="/"
-            className={cn([integralCF.className, "text-2xl lg:text-[32px] mb-2 mr-3 lg:mr-10"])}>
+            className={cn([
+              integralCF.className,
+              "text-2xl lg:text-[32px] mb-2 mr-3 lg:mr-10",
+            ])}
+          >
             SHOP.CO
           </Link>
         </div>
 
-        {/* Navigation Links (visible only on larger screens) */}
+        {/* Navigation Links */}
         <div className="hidden md:flex items-center ml-10 space-x-6 whitespace-nowrap">
-          {navMenuData.items.map((item) => (
-            <Link
-              key={item.name}
-              href={item.link}
-              className="text-black text-sm relative group"
-            >
-              {item.name}
-              <MdOutlineKeyboardArrowDown className="ml-2 inline" />
-              <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-            </Link>
-          ))}
+          <Link
+            href="/shop"
+            className="text-black text-sm relative group"
+          >
+            Shop
+            <MdOutlineKeyboardArrowDown className="ml-2 inline" />
+            <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          </Link>
+          <Link
+            href="/shop"
+            className="text-gray-700 text-sm relative group"
+          >
+            On Sale
+            <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          </Link>
+          <Link
+            href="/shop"
+            className="text-gray-700 text-sm relative group"
+          >
+            New Arrivals
+            <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          </Link>
+          <Link
+            href="/shop"
+            className="text-gray-700 text-sm relative group"
+          >
+            Brands
+            <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          </Link>
         </div>
 
         {/* Search Bar and Icons */}
