@@ -11,23 +11,16 @@ export interface NavMenu {
   items: { name: string; link: string; }[];
 }
 
-const ResTopNavbar = ({ data }: { data: NavMenu }) => {
-  // State to manage menu visibility
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Function to toggle the menu visibility
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);  // Toggle the state
-  };
-
+// Update the props to accept both 'data' and 'isOpen'
+const OtherTopNavbar = ({ data, isOpen }: { data: NavMenu; isOpen: boolean }) => {
+  // Function to toggle the menu visibility (no need for local state here since 'isOpen' is passed from the parent)
   return (
     <div className="relative">
       {/* Toggle Button */}
       <button
-        onClick={toggleMenu}
         className="cursor-pointer p-2 rounded-md hover:bg-gray-200 transition duration-200 flex items-center justify-center"
       >
-        {isMenuOpen ? (
+        {isOpen ? (
           <Image
             priority
             src="/icons/close.svg"  // Close icon
@@ -49,15 +42,14 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
       </button>
 
       {/* Conditionally render the menu */}
-      {isMenuOpen && (
+      {isOpen && (
         <div
           className="absolute left-0 top-0 w-64 bg-white shadow-lg rounded-lg p-6 z-10 mt-2 transition-all ease-in-out duration-300"
         >
           <div className="mb-6">
             <Link
               href="/"
-              className={cn([integralCF.className, "text-3xl font-bold text-gray-800"])}
-            >
+              className={cn([integralCF.className, "text-3xl font-bold text-gray-800"])}>
               SHOP.CO
             </Link>
           </div>
@@ -80,4 +72,4 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
   );
 };
 
-export default ResTopNavbar;
+export default OtherTopNavbar;
