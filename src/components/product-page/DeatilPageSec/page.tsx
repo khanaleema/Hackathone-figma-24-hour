@@ -27,7 +27,7 @@ const tabBtnData: TabBtn[] = [
   },
 ];
 
-const Tabs = () => {
+const DetailPageSec = () => {
   const [active, setActive] = useState<number>(1);
 
   return (
@@ -59,4 +59,4 @@ const Tabs = () => {
   );
 };
 
-export default Tabs;
+export default DetailPageSec;

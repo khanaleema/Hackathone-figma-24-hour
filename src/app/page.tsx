@@ -11,7 +11,7 @@ export const newArrivalsData: Product[] = [
     id: 1,
     title: "T-shirt with Tape Details",
     srcUrl: "/images/pic1.png",
-    gallery: ["/images/pic1.png", "/images/pic10.png", "/images/pic11.png"],
+    gallery: ["/images/pic1.png"],
     price: 120,
     discount: {
       amount: 0,
@@ -47,7 +47,7 @@ export const newArrivalsData: Product[] = [
     id: 4,
     title: "Sleeve Striped T-shirt",
     srcUrl: "/images/pic4.png",
-    gallery: ["/images/pic4.png", "/images/pic10.png", "/images/pic11.png"],
+    gallery: ["/images/pic4.png"],
     price: 160,
     discount: {
       amount: 0,
@@ -62,7 +62,7 @@ export const topSellingData: Product[] = [
     id: 5,
     title: "Vertical Striped Shirt",
     srcUrl: "/images/pic5.png",
-    gallery: ["/images/pic5.png", "/images/pic10.png", "/images/pic11.png"],
+    gallery: ["/images/pic5.png"],
     price: 232,
     discount: {
       amount: 0,
@@ -74,7 +74,7 @@ export const topSellingData: Product[] = [
     id: 6,
     title: "Courage Graphic T-shirt",
     srcUrl: "/images/pic6.png",
-    gallery: ["/images/pic6.png", "/images/pic10.png", "/images/pic11.png"],
+    gallery: ["/images/pic6.png"],
     price: 145,
     discount: {
       amount: 0,
@@ -113,7 +113,7 @@ export const relatedProductData: Product[] = [
     id: 12,
     title: "Polo with Contrast Trims",
     srcUrl: "/images/pic12.png",
-    gallery: ["/images/pic12.png", "/images/pic10.png", "/images/pic11.png"],
+    gallery: ["/images/pic12.png"],
     price: 242,
     discount: {
       amount: 0,
@@ -157,6 +157,7 @@ export const relatedProductData: Product[] = [
     },
     rating: 5.0,
   },
+  
 ];
 
 export const reviewsData: Review[] = [

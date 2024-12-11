@@ -6,9 +6,30 @@ import Link from "next/link";
 
 const ReviewsContent = () => {
   const [selectedOption, setSelectedOption] = useState("Latest");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [reviewText, setReviewText] = useState("");
 
   const handleSelect = (value: string) => {
     setSelectedOption(value);
+  };
+
+  const handleWriteReview = () => {
+    setIsModalOpen(true); // Open the modal to write a review
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Close the modal
+    setReviewText(""); // Reset the review text
+  };
+
+  const handleReviewSubmit = () => {
+    if (reviewText.trim()) {
+      alert("Review Submitted: " + reviewText); // You can replace this with actual submission logic
+      setReviewText(""); // Reset the review input
+      handleCloseModal(); // Close the modal after submission
+    } else {
+      alert("Please write a review before submitting.");
+    }
   };
 
   return (
@@ -61,16 +82,21 @@ const ReviewsContent = () => {
           <Button
             type="button"
             className="sm:min-w-[166px] px-4 py-3 sm:px-5 sm:py-4 rounded-full bg-black font-medium text-xs sm:text-base h-12"
+            onClick={handleWriteReview}
           >
             Write a Review
           </Button>
         </div>
       </div>
+
+      {/* Reviews Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5 sm:mb-9">
         {reviewsData.map((review) => (
           <ReviewCard key={review.id} data={review} isAction isDate />
         ))}
       </div>
+
+      {/* Load More Reviews Button */}
       <div className="w-full px-4 sm:px-0 text-center">
         <Link
           href="#"
@@ -79,6 +105,35 @@ const ReviewsContent = () => {
           Load More Reviews
         </Link>
       </div>
+
+      {/* Modal for Writing a Review */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg w-96 max-w-full">
+            <h3 className="text-xl font-bold mb-4">Write a Review</h3>
+            <textarea
+              value={reviewText}
+              onChange={(e) => setReviewText(e.target.value)}
+              placeholder="Write your review here..."
+              className="w-full h-40 p-4 border rounded-lg mb-4"
+            />
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={handleCloseModal}
+                className="px-4 py-2 bg-gray-300 rounded-lg text-black"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleReviewSubmit}
+                className="px-4 py-2 bg-black text-white rounded-lg"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
