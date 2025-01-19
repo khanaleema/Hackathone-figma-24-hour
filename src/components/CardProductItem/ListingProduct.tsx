@@ -8,7 +8,7 @@ import { integralCF } from "@/styles/fonts";
 
 type ListingProductProps = {
   title: string;
-  data: Product[];  
+  data: Product[];
   viewAllLink?: string;
 };
 

@@ -157,7 +157,7 @@ export const relatedProductData: Product[] = [
     },
     rating: 5.0,
   },
-  
+
 ];
 
 export const reviewsData: Review[] = [
