@@ -156,7 +156,7 @@ const MainNavbar = () => {
               ) : searchResults.length > 0 ? (
                 searchResults.map((result: Product) => (
                   <Link
-                    href={`/product/${result.slug}`}
+                    href={`/product/${result.slug?.current}`}
                     key={result._id}
                     className="flex items-center p-2 hover:bg-gray-100 rounded-lg"
                   >

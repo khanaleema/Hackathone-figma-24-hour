@@ -10,6 +10,22 @@ export default defineType({
         title: 'Name',
         type: 'string',
         },
+       {
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      description: "Click 'Generate' to create a URL-friendly slug from the name.",
+      options: {
+        source: "name", // Generates the slug based on the name field
+        maxLength: 96, // Optional: Limit the slug length
+        slugify: (input) =>
+          input
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric characters with hyphens
+            .replace(/(^-|-$)+/g, ""), // Remove leading or trailing hyphens
+      },
+      validation: (Rule) => Rule.required().error("Slug is required"), // Ensure slug is always filled
+    },
         {
         name: 'price',
         title: 'Price',
