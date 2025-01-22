@@ -1,4 +1,4 @@
-"use client"; // Add this at the top of your file
+"use client";
 
 import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
@@ -31,14 +31,13 @@ interface Product {
   name: string;
   price: number;
   imageUrl: string;
-  slug: string;
+  slug: { current: string }; // Updated slug type
 }
 
 const MainNavbar = () => {
   const [searchQuery, setSearchQuery] = useState<string>(""); // Store the current search query
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState<string>(""); // Debounced search query
-  const [searchResults, setSearchResults] = useState<Product[]>([]);
-  console.log(searchResults)// Store the search results
+  const [searchResults, setSearchResults] = useState<Product[]>([]); // Store the search results
   const [loading, setLoading] = useState<boolean>(false); // Loading state
   const [error, setError] = useState<string | null>(null); // Error state
 
@@ -156,7 +155,7 @@ const MainNavbar = () => {
               ) : searchResults.length > 0 ? (
                 searchResults.map((result: Product) => (
                   <Link
-                    href={`/product/${result.slug?.current}`}
+                    href={`/product/${result.slug.current}`}
                     key={result._id}
                     className="flex items-center p-2 hover:bg-gray-100 rounded-lg"
                   >
